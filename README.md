@@ -4,8 +4,6 @@
 
 A web application that allows the user to add and manage their daily expenses through a comprehensive design.
 
----
-
 ## How to run the app:
 
 <!-- Write the exact steps someone needs to run your project from scratch.
@@ -26,8 +24,6 @@ A web application that allows the user to add and manage their daily expenses th
 2. Navigate to the HTML file and on the bottom of the VS Code click "Go live" to start the live server.
 3. The full app will open new window and make sure the server is live and ready simultaniously.
 
----
-
 ## Features
 
 <!-- List what your app can do. Tick what you finished. -->
@@ -40,8 +36,6 @@ A web application that allows the user to add and manage their daily expenses th
 ✅ Data is saved in a PostgreSQL database
 ✅ Theme toggle dark and light.
 ✅ Save expense data and download them as CSV file
-
----
 
 ## Screenshots
 
@@ -62,8 +56,6 @@ A web application that allows the user to add and manage their daily expenses th
 ## What was the hardest part?
 
 ##### It was the post request on the frontend and how I can set up the header and the method and pass the data in json format so express can extract that and add the data there correctly, this part was totally new to me so it took me long to undestand it and search how it was done.
-
----
 
 ## Demo Link:
 
