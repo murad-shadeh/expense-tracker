@@ -37,6 +37,10 @@ A web application that allows the user to add and manage their daily expenses th
 ✅ Theme toggle dark and light.
 ✅ Save expense data and download them as CSV file
 
+## GitHub Link:
+
+[Expense Tracker Repo](https://github.com/murad-shadeh/expense-tracker)
+
 ## Screenshots
 
 <!-- Add 2-3 screenshots of your app (desktop and mobile). -->
