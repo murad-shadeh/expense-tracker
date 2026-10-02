@@ -156,52 +156,66 @@ function renderTableSpinner() {
       </tr>`;
   }
 }
-
 function renderTable(list) {
   const tbody = document.getElementById("expenses-table-body");
   if (!tbody) return;
+  //removing the spinnner once the data successfully fetched
+  tbody.replaceChildren();
 
   if (!list || list.length === 0) {
-    tbody.innerHTML = `
-      <tr>
-        <td colspan="5" class="text-center text-muted py-4">
-          No expenses found.
-        </td>
-      </tr>`;
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.setAttribute("colspan", "5");
+    td.className = "text-center text-muted py-4";
+    td.textContent = "No expenses found.";
+    tr.appendChild(td);
+    tbody.appendChild(tr);
     return;
   }
 
-  tbody.innerHTML = list
-    .map((expense) => {
-      const formattedAmount = Number(expense.amount).toFixed(2);
-      return `
-      <tr data-id="${expense.id}">
-        <td class="fw-semibold">${expense.title}</td>
-        <td>$${formattedAmount}</td>
-        <td>
-          <span class="badge ${getCategoryBadgeClass(expense.category)}">
-            ${expense.category}
-          </span>
-        </td>
-        <td>${expense.date}</td>
-        <td class="text-end">
-          <button 
-            class="btn btn-sm btn-outline-primary me-1 edit-btn" 
-            onclick="openEditModal(${expense.id})"
-          >
-            Edit
-          </button>
-          <button 
-            class="btn btn-sm btn-outline-danger delete-btn" 
-            onclick="handleDelete(${expense.id})"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>`;
-    })
-    .join("");
+  list.forEach((expense) => {
+    const formattedAmount = Number(expense.amount).toFixed(2);
+
+    const tr = document.createElement("tr");
+    tr.dataset.id = expense.id; // having the id on each row
+
+    const titleTd = document.createElement("td");
+    titleTd.className = "fw-semibold";
+    titleTd.textContent = expense.title;
+
+    const amountTd = document.createElement("td");
+    amountTd.textContent = `$${formattedAmount}`;
+
+    const categoryTd = document.createElement("td");
+    const badge = document.createElement("span");
+    badge.className = `badge ${getCategoryBadgeClass(expense.category)}`;
+    badge.textContent = expense.category;
+    categoryTd.appendChild(badge);
+
+    const dateTd = document.createElement("td");
+    dateTd.textContent = expense.date;
+
+    const actionsTd = document.createElement("td");
+    actionsTd.className = "text-end";
+
+    const editBtn = document.createElement("button");
+    editBtn.className = "btn btn-sm btn-outline-primary me-1 edit-btn";
+    editBtn.textContent = "Edit";
+    editBtn.addEventListener("click", () => openEditModal(expense.id));
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "btn btn-sm btn-outline-danger delete-btn";
+    deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", () => handleDelete(expense.id));
+
+    actionsTd.appendChild(editBtn);
+    actionsTd.appendChild(deleteBtn);
+
+    tr.append(titleTd, amountTd, categoryTd, dateTd, actionsTd);
+    tbody.appendChild(tr);
+  });
 }
+
 function applyFilter() {
   const filterElement = document.getElementById("category-filter");
   const selectedCategory = filterElement ? filterElement.value : "All";
