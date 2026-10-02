@@ -1,8 +1,14 @@
-# Expense Tracker
+# 💰 Expense Tracker
 
 <!-- Write 1-2 sentences: what does your app do? -->
 
 A web application that allows the user to add and manage their daily expenses through a comprehensive design.
+
+[![Watch Demo](https://img.shields.io/badge/Watch_Demo_Video-Google_Drive-4285F4?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1e-muyE7lJ_CcIfC8F-2Y0hwsgJ26oOBI/view?usp=sharing) [![Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/murad-shadeh/expense-tracker)
+
+## Tech Stack
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
 
 ## How to run the app:
 
@@ -37,11 +43,6 @@ A web application that allows the user to add and manage their daily expenses th
 - ✅ Theme toggle dark and light.
 - ✅ Save expense data and download them as CSV file
 
-## GitHub Link:
-
-| [Expense Tracker Repo](https://github.com/murad-shadeh/expense-tracker) |
-| :---------------------------------------------------------------------: |
-
 ## Screenshots
 
 <!-- Add 2-3 screenshots of your app (desktop and mobile). -->
@@ -60,11 +61,7 @@ A web application that allows the user to add and manage their daily expenses th
 
 ## What was the hardest part?
 
-##### It was the post request on the frontend and how I can set up the header and the method and pass the data in json format so express can extract that and add the data there correctly, this part was totally new to me so it took me long to undestand it and search how it was done.
-
-## Demo Link:
-
-[![Watch Demo](https://img.shields.io/badge/Watch_Demo_Video-Google_Drive-4285F4?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1e-muyE7lJ_CcIfC8F-2Y0hwsgJ26oOBI/view?usp=sharing)
+> It was the POST request on the frontend — figuring out how to set up the headers, the method, and pass the data in JSON format so Express could extract it and add it to the database correctly. This part was completely new to me, so it took a while to understand and research how it's done.
 
 ---
 
