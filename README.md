@@ -39,7 +39,7 @@ A web application that allows the user to add and manage their daily expenses th
 
 ## GitHub Link:
 
-[Expense Tracker Repo](https://github.com/murad-shadeh/expense-tracker)
+[![Expense Tracker Repo](https://shields.io)](https://github.com/murad-shadeh/expense-tracker)
 
 ## Screenshots
 
