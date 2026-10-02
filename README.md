@@ -28,14 +28,14 @@ A web application that allows the user to add and manage their daily expenses th
 
 <!-- List what your app can do. Tick what you finished. -->
 
-✅ Add an expense (with validation)
-✅ Delete an expense
-✅ Edit an expense
-✅ Filter by category
-✅ Summary cards (total, count, highest)
-✅ Data is saved in a PostgreSQL database
-✅ Theme toggle dark and light.
-✅ Save expense data and download them as CSV file
+- [x] Add an expense (with validation)
+- [x] Delete an expense
+- [x] Edit an expense
+- [x] Filter by category
+- [x] Summary cards (total, count, highest)
+- [x] Data is saved in a PostgreSQL database
+- [x] Theme toggle dark and light.
+- [x] Save expense data and download them as CSV file
 
 ## GitHub Link:
 
