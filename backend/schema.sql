@@ -22,4 +22,3 @@ INSERT INTO expenses (title, amount, category, date) VALUES
   ('Taxi',             6.00,  'Transport',     '2026-02-04'),
   ('Internet bill',    20.00, 'Bills',         '2026-02-07');
 
-  select * from expenses;
