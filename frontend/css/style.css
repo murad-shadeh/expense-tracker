@@ -1,2 +1,59 @@
 /* Your custom styles go here.
    Use Bootstrap classes first, and write your own CSS only when you need to. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.summary-section {
+  width: 100%;
+  max-width: 1140px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+/* adding some resposiveness */
+@media (max-width: 767px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  /* flipping the colors for the theme */
+  background-color: var(--bs-tertiary-bg, #fff);
+  border: 1px solid var(--bs-border-color, rgba(0, 0, 0, 0.125));
+  color: var(--bs-body-color);
+}
+
+.summary-label {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  color: var(--bs-secondary-color, #6c757d);
+}
+
+.summary-value {
+  font-weight: 700;
+  margin: 0;
+}
+
+.summary-sublabel {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  color: var(--bs-secondary-color, #6c757d);
+}

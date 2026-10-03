@@ -76,42 +76,22 @@
         ></div>
       </div>
       <!-- Summary card section -->
-      <section class="container my-4">
-        <div class="row g-3 align-items-stretch">
-          <div class="col-md-4 d-flex">
-            <div class="card text-center p-3 shadow-sm w-100 h-100">
-              <div
-                class="card-body d-flex flex-column justify-content-center align-items-center p-0"
-              >
-                <span class="text-muted small mb-2">Total</span>
-                <h2 class="fw-bold mb-0" id="total-amount">-</h2>
-              </div>
-            </div>
+      <section class="summary-section">
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span class="summary-label">Total</span>
+            <h2 class="summary-value" id="total-amount">-</h2>
           </div>
 
-          <div class="col-md-4 d-flex">
-            <div class="card text-center p-3 shadow-sm w-100 h-100">
-              <div
-                class="card-body d-flex flex-column justify-content-center align-items-center p-0"
-              >
-                <span class="text-muted small mb-2">Number of expenses</span>
-                <h2 class="fw-bold mb-0" id="expense-count">-</h2>
-              </div>
-            </div>
+          <div class="summary-card">
+            <span class="summary-label">Number of expenses</span>
+            <h2 class="summary-value" id="expense-count">-</h2>
           </div>
 
-          <div class="col-md-4 d-flex">
-            <div class="card text-center p-3 shadow-sm w-100 h-100">
-              <div
-                class="card-body d-flex flex-column justify-content-center align-items-center p-0"
-              >
-                <span class="text-muted small mb-2">Highest expense</span>
-                <h2 class="fw-bold mb-0" id="highest-expense">-</h2>
-                <span class="text-muted small mt-1" id="highest-expense-title"
-                  >-</span
-                >
-              </div>
-            </div>
+          <div class="summary-card">
+            <span class="summary-label">Highest expense</span>
+            <h2 class="summary-value" id="highest-expense">-</h2>
+            <span class="summary-sublabel" id="highest-expense-title">-</span>
           </div>
         </div>
       </section>
