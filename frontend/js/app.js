@@ -66,6 +66,7 @@ async function addExpense(data) {
     if (!response.ok) {
       throw new Error("Something went wrong while creating the expense.");
     }
+    alert(`Expense ${data.title} added to your expense table`);
     return await response.json();
   } catch (error) {
     throw new Error("Something went wrong on the server side.");
@@ -106,7 +107,6 @@ function renderSummary(expenses) {
   const expenseCount = document.getElementById("expense-count");
   const theHighestExpense = document.getElementById("highest-expense");
   const highestExpenseTitle = document.getElementById("highest-expense-title");
-
   if (!expenses || expenses.length === 0) {
     totalAmount.textContent = "$0.00";
     expenseCount.textContent = "0";
@@ -117,6 +117,7 @@ function renderSummary(expenses) {
 
   let total = 0;
   let highestExpense = expenses[0];
+  let avg = 0;
 
   expenses.forEach((expense) => {
     total += Number(expense.amount);
