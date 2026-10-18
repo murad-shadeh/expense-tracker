@@ -216,15 +216,26 @@ function renderTable(list) {
     tbody.appendChild(tr);
   });
 }
+// adding the search feature to the expense table
+const searchInput = document.getElementById("search-input");
+if (searchInput) {
+  searchInput.addEventListener("input", applyFilter);
+}
 
 function applyFilter() {
+  // apply the results with both the category filter and the search input when selected or typed
   const filterElement = document.getElementById("category-filter");
   const selectedCategory = filterElement ? filterElement.value : "All";
 
-  const filteredList =
+  const filteredListByCategory =
     selectedCategory === "All"
       ? allExpenses
       : allExpenses.filter((expense) => expense.category === selectedCategory);
+  const searchQuery = searchInput ? searchInput.value.trim().toLowerCase() : "";
+
+  const filteredList = filteredListByCategory.filter((expense) => {
+    return expense.title.toLowerCase().includes(searchQuery);
+  });
 
   renderTable(filteredList);
 }

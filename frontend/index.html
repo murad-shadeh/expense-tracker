@@ -197,12 +197,12 @@
             <div class="col-md-6 col-lg-5 offset-lg-1">
               <!-- putting the filter list and the csv buttin side by side with flexbox -->
               <div class="d-flex gap-2 justify-content-md-end">
-                <button
-                  id="export-csv-btn"
-                  class="btn btn-outline-success btn-sm d-flex align-items-center gap-1 text-nowrap"
-                >
-                  <i class="bi bi-file-earmark-spreadsheet"></i> Export CSV
-                </button>
+                <input
+                  type="text"
+                  id="search-input"
+                  class="form-control form-control-md"
+                  placeholder="Search expenses..."
+                />
                 <select id="category-filter" class="form-select form-select-sm">
                   <option value="All">All Categories</option>
                   <option value="Food">Food</option>
@@ -211,6 +211,12 @@
                   <option value="Entertainment">Entertainment</option>
                   <option value="Other">Other</option>
                 </select>
+                <button
+                  id="export-csv-btn"
+                  class="btn btn-outline-success btn-sm d-flex align-items-center gap-1 text-nowrap"
+                >
+                  <i class="bi bi-file-earmark-spreadsheet"></i> Export CSV
+                </button>
               </div>
             </div>
           </div>
