@@ -514,5 +514,74 @@ if (exportBtn) {
     exportExpensesToCSV(allExpenses);
   });
 }
+// sorting colums heads feature:
+let sortField = null;
+let sortDirection = "asc";
+let searchTerm = ""; // NEW: remembers what the user searched for
+
+const sortHeaders = document.querySelectorAll("th[data-sort]");
+
+function updateSortIndicators() {
+  sortHeaders.forEach((th) => {
+    const icon = th.querySelector(".sort-icon");
+    if (th.dataset.sort === sortField) {
+      th.setAttribute(
+        "aria-sort",
+        sortDirection === "asc" ? "ascending" : "descending",
+      );
+      icon.textContent = sortDirection === "asc" ? "▲" : "▼";
+    } else {
+      th.removeAttribute("aria-sort");
+      icon.textContent = "↕";
+    }
+  });
+}
+
+function compareExpenses(a, b, field) {
+  switch (field) {
+    case "amount":
+      return Number(a.amount) - Number(b.amount);
+    case "date":
+      return new Date(a.date) - new Date(b.date);
+    default: // for title and category
+      return a[field].localeCompare(b[field]);
+  }
+}
+
+// NEW: one function that filters, sorts, and renders
+function applyView() {
+  // 1. filter by the search text
+  const list = allExpenses.filter((e) =>
+    e.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
+  // 2. sort the filtered list (only if a column was clicked)
+  if (sortField) {
+    list.sort((a, b) => {
+      const result = compareExpenses(a, b, sortField);
+      return sortDirection === "asc" ? result : -result;
+    });
+  }
+
+  // 3. show it
+  renderTable(list);
+  updateSortIndicators();
+}
+
+sortHeaders.forEach((th) => {
+  th.addEventListener("click", () => {
+    const field = th.dataset.sort;
+    if (field === sortField) {
+      sortDirection = sortDirection === "asc" ? "desc" : "asc";
+    } else {
+      sortField = field;
+      sortDirection = "asc";
+    }
+
+    applyView(); // CHANGED: replaces the sorted / renderTable / updateSortIndicators lines
+  });
+});
+
+updateSortIndicators(); // this shows ↕ on all columns at load
 
 refresh();

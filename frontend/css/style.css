@@ -19,6 +19,23 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+/* the sorting arrows styles */
+th[data-sort] {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+th[data-sort]:hover {
+  background-color: rgba(128, 128, 128, 0.15);
+}
+.sort-icon {
+  opacity: 0.4;
+  font-size: 15px;
+  margin-left: 0.25rem;
+}
+th[aria-sort] .sort-icon {
+  opacity: 1;
+}
 /* adding some resposiveness */
 @media (max-width: 767px) {
   .summary-grid {
