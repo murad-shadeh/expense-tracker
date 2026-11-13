@@ -237,7 +237,17 @@ function applyFilter() {
     return expense.title.toLowerCase().includes(searchQuery);
   });
 
+  // renderTable(filteredList);
+  // applying the filter to sort as well so multiple features can work together
+  if (sortField) {
+    filteredList.sort((a, b) => {
+      const result = compareExpenses(a, b, sortField);
+      return sortDirection === "asc" ? result : -result;
+    });
+  }
+
   renderTable(filteredList);
+  updateSortIndicators();
 }
 // the refresh function so everything stays up to date
 async function refresh() {
@@ -517,7 +527,6 @@ if (exportBtn) {
 // sorting colums heads feature:
 let sortField = null;
 let sortDirection = "asc";
-let searchTerm = ""; // NEW: remembers what the user searched for
 
 const sortHeaders = document.querySelectorAll("th[data-sort]");
 
@@ -548,26 +557,6 @@ function compareExpenses(a, b, field) {
   }
 }
 
-// NEW: one function that filters, sorts, and renders
-function applyView() {
-  // 1. filter by the search text
-  const list = allExpenses.filter((e) =>
-    e.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
-
-  // 2. sort the filtered list (only if a column was clicked)
-  if (sortField) {
-    list.sort((a, b) => {
-      const result = compareExpenses(a, b, sortField);
-      return sortDirection === "asc" ? result : -result;
-    });
-  }
-
-  // 3. show it
-  renderTable(list);
-  updateSortIndicators();
-}
-
 sortHeaders.forEach((th) => {
   th.addEventListener("click", () => {
     const field = th.dataset.sort;
@@ -577,11 +566,10 @@ sortHeaders.forEach((th) => {
       sortField = field;
       sortDirection = "asc";
     }
-
-    applyView(); // CHANGED: replaces the sorted / renderTable / updateSortIndicators lines
+    applyFilter(); // so the the three filters work together when applies as well.
   });
 });
 
-updateSortIndicators(); // this shows ↕ on all columns at load
+updateSortIndicators(); // this shows ↕ on all columns at initial load.
 
 refresh();
